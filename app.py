@@ -76,10 +76,10 @@ def load_data():
     try:
         if data_source == "Sample Data":
             df = pd.DataFrame({
-                'Date': pd.date_range(start='2023-01-01', periods=5),
-                'Sales': [200, 250, None, 300, 400],
-                'Region': ['North', 'North', 'South', 'East', 'East'],
-                'Temperature': [28.5, 30.1, 32.3, 29.8, 31.2]
+                'Date': pd.date_range(start='2023-01-01', periods=10, freq='D'),
+                'Sales': [200, 250, None, 300, 400, 250, 200, 500, None, 350],
+                'Region': ['North', 'North', 'South', 'East', 'East', 'North', 'North', 'West', 'South', 'East'],
+                'Temperature': [28.5, 30.1, 32.3, 29.8, 31.2, 30.1, 28.5, 27.9, 32.3, 29.8]
             })
             st.session_state.messages.append({
                 'type': 'success',
@@ -154,7 +154,10 @@ if st.session_state.data_frame is not None:
                         'type': 'error',
                         'content': f'Error removing duplicates: {str(e)}'
                     })
-                
+           
+
+        with clean_col2:
+            st.subheader("Missing Values Handling")
             na_action = st.selectbox("Handle Missing Values", 
                 ["Keep", "Drop Rows", "Fill with 0", "Fill with Mean"])
             
@@ -175,37 +178,6 @@ if st.session_state.data_frame is not None:
                     st.session_state.messages.append({
                         'type': 'error',
                         'content': f'Error handling missing values: {str(e)}'
-                    })
-
-        with clean_col2:
-            st.subheader("Column Operations")
-            cols_to_drop = st.multiselect("Select columns to remove", st.session_state.data_frame.columns)
-            if st.button("Remove Selected Columns") and cols_to_drop:
-                try:
-                    st.session_state.data_frame = st.session_state.data_frame.drop(columns=cols_to_drop)
-                    st.session_state.messages.append({
-                        'type': 'success',
-                        'content': f'Removed columns: {", ".join(cols_to_drop)}'
-                    })
-                except Exception as e:
-                    st.session_state.messages.append({
-                        'type': 'error',
-                        'content': f'Error removing columns: {str(e)}'
-                    })
-                
-            new_col_name = st.text_input("Rename selected column")
-            if new_col_name and 'selected_col' in st.session_state:
-                try:
-                    st.session_state.data_frame = st.session_state.data_frame.rename(
-                        columns={st.session_state.selected_col: new_col_name})
-                    st.session_state.messages.append({
-                        'type': 'success',
-                        'content': f'Renamed column {st.session_state.selected_col} to {new_col_name}'
-                    })
-                except Exception as e:
-                    st.session_state.messages.append({
-                        'type': 'error',
-                        'content': f'Error renaming column: {str(e)}'
                     })
 
     # Interactive Data Editor Section
