@@ -27,106 +27,63 @@ Clean, Analyze, and Convert Data Effortlessly
    ```bash
    git clone https://github.com/Future-Rafay/Data-Management-App-Python-Streamlit.git
    cd data-management-pro
-Install dependencies:
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the app:
+   ```bash
+   streamlit run app.py
+   ```
+4. Open your browser and go to:
+   ```
+   http://localhost:8501
+   ```
 
-bash
-Copy
-pip install -r requirements.txt
-Run the app:
+## 🖥️ Usage
 
-bash
-Copy
-streamlit run app.py
-Open your browser and go to:
-
-Copy
-http://localhost:8501
-🖥️ Usage
-Upload Data:
-
+### Upload Data:
 Choose a CSV/Excel file or use the sample dataset.
 
-Clean Data:
-
+### Clean Data:
 Remove duplicates, handle missing values, and rename/delete columns.
 
-Edit Data:
-
+### Edit Data:
 Use the interactive editor to modify data directly.
 
-Visualize Data:
-
+### Visualize Data:
 Create charts with customizable axes and styles.
 
-Export Data:
-
+### Export Data:
 Save your cleaned data in CSV, Excel, or JSON format.
 
-📂 File Structure
-Copy
+---
+
+## 🐂 File Structure
+```
 data-management-pro/
 ├── app.py                # Main application code
 ├── requirements.txt      # Python dependencies
 ├── README.md             # Project documentation
-└── assets/               # Static files (optional)
-    └── logo.png
-    
-🌐 Deployment
-Streamlit Sharing (Recommended)
-Fork this repository
 
-Go to Streamlit Sharing
+```
 
-Connect your GitHub account and deploy the app
+---
 
-Docker
-bash
-Copy
-docker build -t data-management-pro .
-docker run -p 8501:8501 data-management-pro
-🛡️ Security
-All data processing happens in memory
+## 🌐 Deployment
 
-No server-side storage
+### Streamlit Sharing (Recommended)
+1. Fork this repository
+2. Go to Streamlit Sharing
+3. Connect your GitHub account and deploy the app
 
-Browser storage cleared on cache reset
 
-🤝 Contributing
-Fork the repository
+## 👨‍💻 Author
+**Rafay Nadeem**  
+GitHub: [@Future-Rafay](https://github.com/Future-Rafay)  
+LinkedIn: [@Rafay Nadeem](https://www.linkedin.com/in/rafay-nadeem-web-developer/)
 
-Create your feature branch:
+---
 
-bash
-Copy
-git checkout -b feature/amazing-feature
-Commit your changes:
-
-bash
-Copy
-git commit -m 'Add amazing feature'
-Push to the branch:
-
-bash
-Copy
-git push origin feature/amazing-feature
-Open a Pull Request
-
-📄 License
-Distributed under the MIT License. See LICENSE for more information.
-
-👨💻 Author
-Rafay Nadeem
-
-GitHub: @rafay-nadeem
-
-LinkedIn: Rafay Nadeem
-
-🙏 Acknowledgments
-Streamlit for the awesome framework
-
-Plotly for interactive visualizations
-
-Pandas for data manipulation
-
-✨ Made with ❤️ and Python
-🚀 Empowering data-driven decisions since 2023
+✨ Made with ❤️ and Python  
